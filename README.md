@@ -1,5 +1,4 @@
 # Vue.js Authentication Template
-# Vue.js Authentication Template
 
 This is a Vue.js authentication template that provides a ready-to-use setup for user login, forgot password, and reset password functionalities. The template includes styled components and integrates with your backend API for user authentication.
 
@@ -13,6 +12,8 @@ This is a Vue.js authentication template that provides a ready-to-use setup for 
 - [Running the Application](#running-the-application)
 - [API Integration](#api-integration)
 - [Customization](#customization)
+- [Auth Services](#auth-services)
+- [Other Implementations](#other-implementations)
 
 ## Features
 
@@ -102,4 +103,12 @@ The Vue.js authentication template is designed to integrate with your backend AP
 ## Customization
 
 The Vue.js authentication template provides a solid foundation for building authentication functionality in your Vue.js applications. You can customize the template by modifying the components, styles, and functionality to suit your specific needs. Feel free to explore the code and make any necessary changes to meet your requirements.
+
+## Auth Services
+
+To handle authentication-related tasks, the template includes Auth Services. These services provide methods for user login, forgot password, reset password, and other authentication functionalities. You can find the implementation details in the codebase.
+
+## Other Implementations
+
+Apart from the provided Auth Services, you can also implement additional features or customize the existing ones according to your requirements. The template is flexible and allows for easy extension and modification.
 
