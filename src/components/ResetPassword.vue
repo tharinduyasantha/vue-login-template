@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import axios from '../axios'; // Import your axios instance
+import AuthService from '../services/AuthService'; // Import AuthService
 
 export default {
   name: 'ResetPassword',
@@ -41,15 +41,13 @@ export default {
       }
 
       try {
-        const response = await axios.post('/api/reset-password', {
-          password: this.newPassword,
-        });
+        const response = await AuthService.resetPassword(this.newPassword); // Use AuthService for password reset
 
-        if (response.data.success) {
+        if (response.success) {
           this.message = 'Password has been reset successfully!';
           this.$router.push('/');
         } else {
-          this.errorMessage = 'Failed to reset password. Please try again.';
+          this.errorMessage = response.message || 'Failed to reset password. Please try again.';
         }
       } catch (error) {
         this.errorMessage = 'An error occurred. Please try again.';

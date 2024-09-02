@@ -38,6 +38,7 @@
 
 <script>
 import axios from '../axios'; // Use your custom axios instance
+import AuthService from '../services/AuthService'; // Import AuthService
 
 export default {
   name: 'LoginForm',
@@ -66,15 +67,12 @@ export default {
     },
     async handleLogin() {
       try {
-        const response = await axios.post('/api/login', {
-          username: this.username,
-          password: this.password,
-        });
+        const response = await AuthService.login(this.username, this.password); // Use AuthService for login
 
-        if (response.data.success) {
+        if (response.success) {
           this.$router.push({ name: 'Home' });
         } else {
-          this.errorMessage = response.data.message || 'Invalid credentials';
+          this.errorMessage = response.message || 'Invalid credentials';
         }
       } catch (error) {
         this.errorMessage = 'An error occurred. Please try again.';

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import axios from '../axios'; // Import your axios instance
+import AuthService from '../services/AuthService'; // Import AuthService
 
 export default {
   name: 'ForgotPassword',
@@ -32,14 +32,12 @@ export default {
   methods: {
     async handleForgotPassword() {
       try {
-        const response = await axios.post('/api/forgot-password', {
-          email: this.email,
-        });
+        const response = await AuthService.forgotPassword(this.email); // Use AuthService for forgot password
 
-        if (response.data.success) {
+        if (response.success) {
           this.message = 'Reset link sent to your email';
         } else {
-          this.errorMessage = 'Failed to send reset link. Please try again.';
+          this.errorMessage = response.message || 'Failed to send reset link. Please try again.';
         }
       } catch (error) {
         this.errorMessage = 'An error occurred. Please try again.';
